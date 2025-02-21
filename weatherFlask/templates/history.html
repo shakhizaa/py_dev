@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История запросов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <img src="{{ url_for('static', filename='images/sun_cloud.png') }}" alt="Sun" class="sun-icon">
+        <div class="history-container">
+            <h2>История запросов</h2>
+            <ul>
+                {% for record in history %}
+                <li>{{ record.city }} - {{ record.temperature }}°C - {{ record.date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/clear_history" class="blue-btn">Очистить историю</a>
+    </div>
+</body>
+</html>
